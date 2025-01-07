@@ -49,7 +49,7 @@ export default function RecipeListItem({ item, key }) {
 
         <span>
           <Link
-            to={`/recipe-item/${item?.id}`}
+            to={`/recipe-app/recipe-item/${item?.id}`}
             style={{
               display: "inline-block",
               padding: "10px 20px",

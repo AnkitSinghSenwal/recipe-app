@@ -15,6 +15,7 @@ function GlobalState({ children }) {
     return localData ? JSON.parse(localData) : [];
   });
   const navigate = useNavigate();
+  const [placeholder, setPlaceholder] = useState("");
 
 
   useEffect(() => { 
@@ -54,7 +55,7 @@ function GlobalState({ children }) {
         if (data && data.data && data.data.recipes) {
           setRecipeList(data.data.recipes); // Update recipe list with results
           
-          navigate("/"); // Navigate to the home page
+          navigate("/recipe-app/"); // Navigate to the home page
         } else {
           console.error("Unexpected API response format", data);
           setRecipeList([]); // Reset recipe list if data is invalid
@@ -68,6 +69,7 @@ function GlobalState({ children }) {
       setRecipeList([]); // Reset recipe list on error
     } finally {
       setLoading(false); // Always reset loading state
+      setPlaceholder(searchPara); // Set the placeholder to the search parameter
       setSearchPara(""); // Clear the search parameter after submission
     }
   }
@@ -86,6 +88,7 @@ function GlobalState({ children }) {
         setRecipeDetailsData,
         handleAddToFav,
         favList,
+        placeholder,
       }}
     >
       {children}

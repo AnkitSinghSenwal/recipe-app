@@ -5,7 +5,7 @@ import { GlobalContext } from "../../Context/index";
 
 export default function Navbar() {
 
-  const {searchPara, setSearchPara, handleSubmit} = useContext(GlobalContext);
+  const {searchPara, setSearchPara, handleSubmit, placeholder} = useContext(GlobalContext);
 
   return (
     
@@ -36,7 +36,7 @@ export default function Navbar() {
     {/* Logo */}
     <h1 style={{ margin: 0, fontSize: "32px", color: "#007bff" }}>
       <NavLink
-        to="/"
+        to="/recipe-app/"
         style={{
           textDecoration: "none",
           fontWeight: "bold",
@@ -62,7 +62,7 @@ export default function Navbar() {
         onChange={(e) => setSearchPara(e.target.value)}
         className="search-bar"
         type="text"
-        placeholder="Search for recipes"
+        placeholder={placeholder ? `Result for: ${placeholder}` : "Search for recipes"}
         style={{
           flex: 1,
           padding: "12px 15px",
@@ -103,7 +103,7 @@ export default function Navbar() {
 
         <li key={index}>
           <NavLink
-            to={ link === 'Home' ? '/' : `/${link.toLowerCase()}`}
+            to={ link === 'Home' ? '/recipe-app/' : `/recipe-app/${link.toLowerCase()}`}
             style={{
               color:"rgb(192 192 192)",
               textDecoration: "none",
