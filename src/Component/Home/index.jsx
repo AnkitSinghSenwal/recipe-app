@@ -48,7 +48,7 @@ export default function Home() {
               justifyContent: "center",
             }}
           >
-            <h1>Search somthing...</h1>
+            <h1>Search Something...</h1>
           </div>
         )}
       </div>
